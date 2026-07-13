@@ -2,7 +2,7 @@ const ExcelJS = require('exceljs');
 const Product = require('../models/Product');
 const Movement = require('../models/Movement');
 
-// GET /api/reports/productos/excel - exporta el inventario completo a Excel
+
 exports.exportarProductosExcel = async (req, res) => {
   try {
     const productos = await Product.find().sort({ nombre: 1 });
