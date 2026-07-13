@@ -5,6 +5,8 @@ const connectDB = require('./config/db');
 
 const productRoutes = require('./routes/products');
 const movementRoutes = require('./routes/movements');
+const authRoutes = require('./routes/auth');
+const reportRoutes = require('./routes/reports');
 
 const app = express();
 
@@ -17,8 +19,10 @@ app.get('/', (req, res) => {
   res.json({ mensaje: 'API MASS BARATO - Sistema de Inventario funcionando correctamente' });
 });
 
+app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/movements', movementRoutes);
+app.use('/api/reports', reportRoutes);
 
 // Manejo de rutas no encontradas
 app.use((req, res) => {
